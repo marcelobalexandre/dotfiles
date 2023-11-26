@@ -1,3 +1,3 @@
 #!/bin/sh
 
-stow --target=$HOME --restow --verbose tmux
+find -maxdepth 1 -type d ! -name . ! -name .git -printf '%f\n' | xargs -n1 stow --target=$HOME --restow --verbose
