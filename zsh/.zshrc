@@ -18,12 +18,13 @@ eval "$(rtx activate zsh)"
 
 # Aliases
 alias zsh.edit='vim ~/.zshrc'
-alias zsh.update='source ~/.zshrc'
+alias zsh.reload='source ~/.zshrc'
 alias tmux.edit='vim ~/.tmux.conf'
 alias vim.edit='cd ~/.config/nvim && vim .'
 alias hosts.edit='sudo vim /etc/hosts'
 alias pacman.clean='sudo pacman -Rsn $(pacman -Qdtq)'
 alias cd.home='cd ~/'
+alias cd.config='cd ~/.config'
 alias cd.aoc='cd ~/src/marcelobalexandre/advent-of-code'
 alias git.undo='git reset HEAD~'
 alias vim='nvim'
