@@ -5,4 +5,4 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   exit
 fi
 
-find . -maxdepth 1 -type d ! -name . ! -name .git ! -name yabai -printf '%f\n' | xargs -n1 stow --target=$HOME --restow --verbose
+find . -maxdepth 1 -type d ! -name . ! -name .git ! -name yabai ! -name skhd -printf '%f\n' | xargs -n1 stow --target=$HOME --restow --verbose
