@@ -1,10 +1,8 @@
 #!/bin/sh
 
-find="find"
-xargs="xargs"
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  find="gfind"
-  xargs="gxargs"
+  gfind . -maxdepth 1 -type d ! -name . ! -name .git -printf '%f\n' | gxargs -n1 stow --target=$HOME --restow --verbose
+  exit
 fi
 
-eval "$find . -maxdepth 1 -type d ! -name . ! -name .git -printf '%f\n'" | eval "$xargs -n1 stow --target=$HOME --restow --verbose"
+find . -maxdepth 1 -type d ! -name . ! -name .git ! -name yabai -printf '%f\n' | xargs -n1 stow --target=$HOME --restow --verbose
