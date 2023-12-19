@@ -12,10 +12,9 @@ fi
 export EDITOR=usr/bin/vim
 export VISUAL=usr/bin/vim 
 
-# asdf
-. "$HOME/.asdf/asdf.sh"
-fpath=(${ASDF_DIR}/completions $fpath)
-autoload -Uz compinit && compinit
+# rtx
+export PATH="$HOME/bin:$PATH"
+eval "$(rtx activate zsh)"
 
 # Aliases
 alias zsh.edit='vim ~/.zshrc'
