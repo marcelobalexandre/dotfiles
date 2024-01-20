@@ -114,9 +114,10 @@ fi
 export EDITOR=usr/bin/vim
 export VISUAL=usr/bin/vim 
 
-# rtx
-export PATH="$HOME/bin:$PATH"
-eval "$(rtx activate zsh)"
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+
+# mise
+eval "$(mise activate zsh)"
 
 # Aliases
 alias zsh.edit='vim ~/.zshrc'
@@ -127,6 +128,7 @@ alias hosts.edit='sudo vim /etc/hosts'
 alias pacman.clean='sudo pacman -Rsn $(pacman -Qdtq)'
 alias cd.home='cd ~/'
 alias cd.config='cd ~/.config'
+alias cd.src='cd ~/src'
 alias cd.aoc='cd ~/src/marcelobalexandre/advent-of-code'
 alias git.undo='git reset HEAD~'
 alias vim='nvim'
