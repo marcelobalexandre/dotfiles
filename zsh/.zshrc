@@ -1,3 +1,18 @@
+# Use powerline
+USE_POWERLINE="true"
+# Has weird character width
+# Example:
+#    is not a diamond
+HAS_WIDECHARS="false"
+# Source manjaro-zsh-configuration
+if [[ -e /usr/share/zsh/manjaro-zsh-config ]]; then
+  source /usr/share/zsh/manjaro-zsh-config
+fi
+# Use manjaro zsh prompt
+if [[ -e /usr/share/zsh/manjaro-zsh-prompt ]]; then
+  source /usr/share/zsh/manjaro-zsh-prompt
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -116,6 +131,9 @@ export VISUAL=usr/bin/vim
 
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
+# Swap Caps Lock with Escape
+setxkbmap -option caps:swapescape
+
 # mise
 eval "$(mise activate zsh)"
 
@@ -133,4 +151,6 @@ alias cd.aoc='cd ~/src/marcelobalexandre/advent-of-code'
 alias git.undo='git reset HEAD~'
 alias vim='nvim'
 
-. "$HOME/.zshrc.godaddy"
+if test -f "$HOME/.zshrc.godaddy"; then
+  . "$HOME/.zshrc.godaddy"
+fi
