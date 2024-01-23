@@ -8,7 +8,10 @@ ctrl - c [
 ctrl - f : skhd -k "cmd - f"
 ctrl - k : skhd -k "cmd - k"
 ctrl - l : skhd -k "cmd - l"
-ctrl - r : skhd -k "cmd - r"
+ctrl - r [
+  "Alacritty" ~
+  *           : skhd -k "cmd - r"
+]
 ctrl - t : skhd -k "cmd - t"
 ctrl - v : skhd -k "cmd - v"
 ctrl - x : skhd -k "cmd - x"
