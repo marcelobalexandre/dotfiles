@@ -416,3 +416,9 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
+# Move workspace to another monitor
+bindsym $mod+shift+m move workspace to output left
+
+# Switch keyboard layout
+bindsym $mod+shift+t exec ~/.config/i3/switchKeyboardLayout.sh
