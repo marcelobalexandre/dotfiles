@@ -417,6 +417,9 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
+# Enable external monitor
+bindsym $mod+shift+d exec ~/.screenlayout/desk.sh
+
 # Move workspace to another monitor
 bindsym $mod+shift+m move workspace to output left
 
