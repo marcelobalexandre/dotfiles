@@ -35,7 +35,8 @@ vim.opt.list = true
 vim.opt.listchars:append({ lead = '·',  trail = '·', space = '·' })
 
 -- Allow move/copy files in netrw
-vim.g.netrw_keepdir = 1
+vim.g.netrw_keepdir = 0
+vim.g.netrw_localcopydircmd = 'cp -r'
 
 vim.g.copilot_node_command = '~/.local/share/mise/installs/node/latest/bin/node'
 vim.g.copilot_filetypes = {
