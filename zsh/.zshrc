@@ -132,7 +132,9 @@ export VISUAL=usr/bin/vim
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
 # Swap Caps Lock with Escape
-setxkbmap -option caps:swapescape
+if [[ "$OSTYPE" != "darwin"* ]]; then
+  setxkbmap -option caps:swapescape
+fi
 
 # mise
 eval "$(mise activate zsh)"
