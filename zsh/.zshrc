@@ -126,6 +126,8 @@ if [[ -e /usr/share/zsh/manjaro-zsh-prompt ]]; then
   source /usr/share/zsh/manjaro-zsh-prompt
 fi
 
+export XDG_CONFIG_HOME="$HOME/.config"
+
 export EDITOR=usr/bin/vim
 export VISUAL=usr/bin/vim 
 
@@ -150,6 +152,9 @@ alias cd.home='cd ~/'
 alias cd.config='cd ~/.config'
 alias cd.src='cd ~/src'
 alias cd.dotfiles='cd ~/src/dotfiles'
+alias v.dotfiles='nvim ~/src/dotfiles'
+alias cd.sb='cd ~/Documents/second-brain'
+alias v.sb='nvim ~/Documents/second-brain'
 alias cd.aoc='cd ~/src/personal/advent-of-code'
 alias git.undo='git reset HEAD~'
 alias vim='nvim'
