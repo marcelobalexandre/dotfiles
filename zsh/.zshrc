@@ -128,8 +128,10 @@ fi
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
-export EDITOR=usr/bin/vim
-export VISUAL=usr/bin/vim 
+export BROWSER=firefox
+
+export EDITOR=/usr/bin/nvim
+export VISUAL=/usr/bin/nvim
 
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
