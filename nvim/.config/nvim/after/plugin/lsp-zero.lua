@@ -13,3 +13,4 @@ lspconfig.tsserver.setup({})
 lspconfig.eslint.setup({})
 lspconfig.solargraph.setup{}
 lspconfig.rubocop.setup{}
+lspconfig.gopls.setup{}
