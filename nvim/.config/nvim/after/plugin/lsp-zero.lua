@@ -1,16 +1,24 @@
 local lsp_zero = require('lsp-zero')
 
-lsp_zero.on_attach(function(client, bufnr)
-  -- see :help lsp-zero-keybindings
-  -- to learn the available actions
+lsp_zero.on_attach(function(_, bufnr)
   lsp_zero.default_keymaps({ buffier = bufnr })
 end)
 
 local lspconfig = require('lspconfig')
+
+-- C/C++
+lspconfig.ccls.setup({})
+
+-- Go
+lspconfig.gopls.setup({})
+
+ -- Lua
 lspconfig.lua_ls.setup({})
-lspconfig.ccls.setup{}
-lspconfig.tsserver.setup({})
+
+-- Ruby
+lspconfig.rubocop.setup({})
+lspconfig.solargraph.setup({})
+
+-- TypeScript
 lspconfig.eslint.setup({})
-lspconfig.solargraph.setup{}
-lspconfig.rubocop.setup{}
-lspconfig.gopls.setup{}
+lspconfig.tsserver.setup({})
