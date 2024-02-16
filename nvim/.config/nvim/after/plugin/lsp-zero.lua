@@ -7,7 +7,7 @@ end)
 local lspconfig = require('lspconfig')
 
 -- C/C++
-lspconfig.ccls.setup({})
+lspconfig.clangd.setup({})
 
 -- Go
 lspconfig.gopls.setup({})

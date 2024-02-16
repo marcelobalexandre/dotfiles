@@ -9,7 +9,7 @@ return {
     opts = {
       ensure_installed = {
         -- C/C++
-        'ccls',
+        'clangd',
         -- Go
         'gopls',
         -- Lua
