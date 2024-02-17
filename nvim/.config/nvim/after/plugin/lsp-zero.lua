@@ -13,7 +13,17 @@ lspconfig.clangd.setup({})
 lspconfig.gopls.setup({})
 
  -- Lua
-lspconfig.lua_ls.setup({})
+lspconfig.lua_ls.setup({
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = {
+          'vim',
+        },
+      },
+    },
+  },
+})
 
 -- Ruby
 lspconfig.rubocop.setup({})
