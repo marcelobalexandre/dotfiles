@@ -1,3 +1,9 @@
 return {
-  'tpope/vim-fugitive'
+  'tpope/vim-fugitive',
+  keys = {
+    { '<leader>gs', ':Git<CR>' },
+    { '<leader>gd', ':Gdiffsplit<CR>' },
+    { '<leader>gl', ':Git log<CR>' },
+    { '<leader>gc', ':Git commit<CR>' },
+  },
 }

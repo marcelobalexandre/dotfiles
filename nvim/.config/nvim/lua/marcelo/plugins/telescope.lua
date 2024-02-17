@@ -16,4 +16,11 @@ return {
       },
     },
   },
+  keys = {
+    { '<leader>ff', '<cmd>Telescope find_files<CR>' },
+    { '<leader>fg', '<cmd>Telescope live_grep<CR>' },
+    { '<leader>fb', '<cmd>Telescope buffers<CR>' },
+    { '<C-p>', '<cmd>Telescope git_files<CR>' },
+    { '<leader>fh', '<cmd>Telescope help_tags<CR>' },
+  },
 }

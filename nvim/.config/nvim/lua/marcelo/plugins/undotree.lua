@@ -1,3 +1,7 @@
+-- https://github.com/mbbill/undotree
 return {
-  "mbbill/undotree"
+  'mbbill/undotree',
+  keys = {
+    { '<leader>u', ':UndotreeToggle<CR>' },
+  },
 }
