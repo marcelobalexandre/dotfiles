@@ -1,3 +1,3 @@
-require('marcelo.remap')
-require('marcelo.set')
-require('marcelo.lazy')
+require("marcelo.remap")
+require("marcelo.set")
+require("marcelo.lazy")

@@ -1,10 +1,13 @@
 -- https://github.com/stevearc/oil.nvim
 return {
-  'stevearc/oil.nvim',
+  "stevearc/oil.nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
   opts = {
     view_options = {
       show_hidden = true,
     },
   },
-  dependencies = { 'nvim-tree/nvim-web-devicons' },
+  keys = {
+    { "-", ":Oil<CR>" },
+  },
 }

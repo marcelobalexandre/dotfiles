@@ -1,40 +1,40 @@
 -- https://github.com/VonHeikemen/lsp-zero.nvim
 return {
   {
-    'williamboman/mason.nvim',
+    "williamboman/mason.nvim",
     opts = {},
   },
   {
-    'williamboman/mason-lspconfig.nvim',
+    "williamboman/mason-lspconfig.nvim",
     opts = {
       ensure_installed = {
         -- C/C++
-        'clangd',
+        "clangd",
         -- Go
-        'gopls',
+        "gopls",
         -- Lua
-        'lua_ls',
+        "lua_ls",
         -- Ruby
-        'rubocop',
-        'solargraph',
+        "rubocop",
+        "solargraph",
         -- TypeScript
-        'eslint',
-        'tsserver',
+        "eslint",
+        "tsserver",
       },
     },
   },
   {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v3.x',
+    "VonHeikemen/lsp-zero.nvim",
+    branch = "v3.x",
     config = function(_, opts)
-      local lsp_zero = require('lsp-zero')
+      local lsp_zero = require("lsp-zero")
       lsp_zero.setup(opts)
 
       lsp_zero.on_attach(function(_, bufnr)
         lsp_zero.default_keymaps({ buffier = bufnr })
       end)
 
-      local lspconfig = require('lspconfig')
+      local lspconfig = require("lspconfig")
 
       -- C/C++
       lspconfig.clangd.setup({})
@@ -48,7 +48,7 @@ return {
           Lua = {
             diagnostics = {
               globals = {
-                'vim',
+                "vim",
               },
             },
           },
@@ -63,10 +63,9 @@ return {
       lspconfig.eslint.setup({})
       lspconfig.tsserver.setup({})
     end,
-
   },
-  { 'neovim/nvim-lspconfig' },
-  { 'hrsh7th/cmp-nvim-lsp' },
-  { 'hrsh7th/nvim-cmp' },
-  { 'L3MON4D3/LuaSnip' },
+  { "neovim/nvim-lspconfig" },
+  { "hrsh7th/cmp-nvim-lsp" },
+  { "hrsh7th/nvim-cmp" },
+  { "L3MON4D3/LuaSnip" },
 }
