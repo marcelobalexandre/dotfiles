@@ -23,4 +23,8 @@ return {
     { '<C-p>', '<cmd>Telescope git_files<CR>' },
     { '<leader>fh', '<cmd>Telescope help_tags<CR>' },
   },
+  config = function(_, opts)
+    require('telescope').setup(opts)
+    require('telescope').load_extension('fzf')
+  end,
 }
