@@ -7,6 +7,8 @@ TERM = "xterm-256color"
 
 [window]
 decorations = "None"
+#startup_mode = "Fullscreen"
+startup_mode = "SimpleFullscreen"
 
 [font]
 normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
