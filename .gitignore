@@ -1,1 +1,3 @@
 work/
+tmux/.config/tmux/plugins/*
+!tmux/.config/tmux/plugins/tpm
