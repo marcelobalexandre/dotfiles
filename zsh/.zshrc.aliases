@@ -9,8 +9,10 @@ alias hosts.edit='sudo vim /etc/hosts'
 
 alias cd.home='cd ~/'
 alias cd.src='cd ~/src'
-alias cd.dotfiles='cd ~/src/dotfiles'
+alias cd.personal='cd ~/src/personal'
+alias cd.dotfiles='cd ~/src/personal/dotfiles'
 alias cd.sb='cd ~/src/personal/second-brain'
 alias cd.aoc='cd ~/src/personal/advent-of-code'
+alias cd.work='cd ~/src/work'
 
 alias git.undo='git reset HEAD~'
