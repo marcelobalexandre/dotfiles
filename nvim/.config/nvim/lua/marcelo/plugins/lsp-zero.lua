@@ -32,6 +32,7 @@ return {
         },
       },
       formatters_by_ft = {
+        go = { "goimports", "gofmt" },
         lua = { "stylua" },
         sh = { "shellcheck", "shfmt" },
         javascript = { "prettierd" },
