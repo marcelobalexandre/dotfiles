@@ -13,7 +13,10 @@ ctrl - r [
   *           : skhd -k "cmd - r"
 ]
 ctrl - t : skhd -k "cmd - t"
-ctrl - v : skhd -k "cmd - v"
+ctrl - v [
+  "Alacritty" ~
+  *           : skhd -k "cmd - v" 
+]
 ctrl - x : skhd -k "cmd - x"
 ctrl - z : skhd -k "cmd - z"
 shift + ctrl - p : skhd -k "shift + cmd - p"
