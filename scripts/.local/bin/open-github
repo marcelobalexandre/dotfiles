@@ -1,0 +1,3 @@
+#!/bin/bash
+
+git remote -v | awk '/origin.*push/ {print $2}' | sed 's/github-godaddy://; s/:/\//; s/^git@/https:\/\/github.com\//; s/.git$//' | xargs open
