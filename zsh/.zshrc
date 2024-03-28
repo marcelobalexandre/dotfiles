@@ -8,6 +8,9 @@ export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
 export BROWSER=firefox
 
+# fzf
+eval "$(fzf --zsh)"
+
 # mise
 eval "$(mise activate zsh)"
 
