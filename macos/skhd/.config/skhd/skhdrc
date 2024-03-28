@@ -169,8 +169,15 @@ shift + cmd - space : yabai -m window --toggle float --grid 4:4:1:1:2:2
 # CUSTOM BINDINGS #
 ###################
 
-# open terminal
-# cmd - return : open -na /Applications/Alacritty.app
+# open applications
+cmd - return : open -a /Applications/Alacritty.app
+cmd - f1 : open -a /Applications/Alacritty.app
+cmd - f2 : open -a /Applications/Firefox.app
+cmd - f3 : open -a /Applications/Obsidian.app
+cmd - f4 : open -a /Applications/Slack.app
+cmd - f5 : open -a /Applications/Discord.app
+cmd - f6 : open -a /Applications/Spotify.app
+cmd - f7 : open -a /Applications/Bruno.app
 
 # open spotlight
 # cmd - d : skhd -k "cmd - space"
