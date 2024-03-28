@@ -1,5 +1,6 @@
 . "$HOME/.zshrc.powerlevel10k"
 . "$HOME/.zshrc.oh-my-zsh"
+. "$HOME/.zshrc.fzf"
 . "$HOME/.zshrc.aliases"
 . "$HOME/.zshrc.keybindings"
 
