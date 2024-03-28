@@ -10,10 +10,11 @@ return {
       file_ignore_patterns = { ".git/" },
     },
     pickers = {
+      find_files = {
+        hidden = true
+      },
       live_grep = {
-        additional_args = function()
-          return { "--hidden" }
-        end,
+        hidden = true
       },
     },
   },
@@ -21,7 +22,7 @@ return {
     { "<leader>ff", "<cmd>Telescope find_files<CR>" },
     { "<leader>fg", "<cmd>Telescope live_grep<CR>" },
     { "<leader>fb", "<cmd>Telescope buffers<CR>" },
-    { "<C-p>", "<cmd>Telescope git_files<CR>" },
+    { "<C-p>",      "<cmd>Telescope git_files<CR>" },
     { "<leader>fh", "<cmd>Telescope help_tags<CR>" },
   },
   config = function(_, opts)
