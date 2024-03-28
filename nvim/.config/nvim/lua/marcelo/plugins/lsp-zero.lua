@@ -21,6 +21,55 @@ return {
     lazy = false,
     config = true,
   },
+  -- Formatter
+  -- https://github.com/stevearc/conform.nvim
+  {
+    "stevearc/conform.nvim",
+    opts = {
+      formatters = {
+        shfmt = {
+          prepend_args = { "-i", "2" },
+        },
+      },
+      formatters_by_ft = {
+        lua = { "stylua" },
+        sh = { "shellcheck", "shfmt" },
+      },
+      format_on_save = function(bufnr)
+        if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+          return
+        end
+
+        return { timeout_ms = 500, lsp_fallback = true }
+      end,
+    },
+    config = function(_, opts)
+      vim.api.nvim_create_user_command("FormatDisable", function(args)
+        if args.bang then
+          -- FormatDisable! will disable formatting just for this buffer.
+          vim.b.disable_autoformat = true
+        else
+          vim.g.disable_autoformat = true
+        end
+      end, {
+        desc = "Disable autoformat-on-save",
+        bang = true,
+      })
+
+      vim.api.nvim_create_user_command("FormatEnable", function()
+        vim.b.disable_autoformat = false
+        vim.g.disable_autoformat = false
+      end, {
+        desc = "Re-enable autoformat-on-save",
+      })
+
+      require("conform").setup(opts)
+    end,
+  },
+  -- https://github.com/zapling/mason-conform.nvim
+  {
+    "zapling/mason-conform.nvim",
+  },
   -- Autocompletion
   {
     "hrsh7th/nvim-cmp",
@@ -46,9 +95,9 @@ return {
         }),
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
-          { name = "buffer",  max_item_count = 5 },
+          { name = "buffer", max_item_count = 5 },
           { name = "copilot" },
-          { name = "path",    max_item_count = 3 },
+          { name = "path", max_item_count = 3 },
           { name = "luasnip", max_item_count = 3 },
         }),
       })
@@ -67,7 +116,7 @@ return {
       local lsp_zero = require("lsp-zero")
       lsp_zero.extend_lspconfig()
 
-      lsp_zero.on_attach(function(client, bufnr)
+      lsp_zero.on_attach(function(_, bufnr)
         lsp_zero.default_keymaps({ buffer = bufnr })
       end)
 
@@ -82,6 +131,8 @@ return {
           -- Ruby
           "rubocop",
           "solargraph",
+          -- Shell
+          "bashls",
           -- TypeScript
           "eslint",
           "tsserver",
@@ -94,6 +145,8 @@ return {
           end,
         },
       })
+
+      require("mason-conform").setup()
     end,
   },
 }

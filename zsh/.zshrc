@@ -1,6 +1,7 @@
 . "$HOME/.zshrc.powerlevel10k"
 . "$HOME/.zshrc.oh-my-zsh"
 . "$HOME/.zshrc.aliases"
+. "$HOME/.zshrc.keybindings"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"

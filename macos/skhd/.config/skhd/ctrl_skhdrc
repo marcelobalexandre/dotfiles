@@ -5,7 +5,10 @@ ctrl - c [
   "Alacritty" ~
   *           : skhd -k "cmd - c"
 ]
-ctrl - f : skhd -k "cmd - f"
+ctrl - f [
+  "Alacritty" ~
+  *           : skhd -k "cmd - f"
+]
 ctrl - k : skhd -k "cmd - k"
 ctrl - l : skhd -k "cmd - l"
 ctrl - r [
