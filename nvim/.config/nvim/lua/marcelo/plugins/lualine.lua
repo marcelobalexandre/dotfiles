@@ -41,6 +41,12 @@ return {
           "diff",
           "diagnostics",
         },
+        lualine_c = {
+          {
+            "filename",
+            path = 1,
+          },
+        },
       },
     })
   end,
