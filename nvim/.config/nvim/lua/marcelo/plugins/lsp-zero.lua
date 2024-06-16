@@ -32,7 +32,7 @@ return {
         },
       },
       formatters_by_ft = {
-        go = { "goimports", "gofmt" },
+        go = { "goimports", "gofumpt", "golines" },
         lua = { "stylua" },
         sh = { "shellcheck", "shfmt" },
         javascript = { "prettierd" },
@@ -129,6 +129,7 @@ return {
           "clangd",
           -- Go
           "gopls",
+          "templ",
           -- Lua
           "lua_ls",
           -- Ruby

@@ -6,6 +6,6 @@ return {
     { "<leader>gd", ":Gdiffsplit<CR>" },
     { "<leader>gl", ":Git log<CR>" },
     -- Open commit with last commit message
-    { "<leader>gc", ":Git commit -c HEAD <CR>" },
+    { "<leader>gc", ":Git commit --reedit-message HEAD --reset-author <CR>" },
   },
 }

@@ -11,10 +11,10 @@ return {
     },
     pickers = {
       find_files = {
-        hidden = true
+        hidden = true,
       },
       live_grep = {
-        hidden = true
+        additional_args = { "--hidden" },
       },
     },
   },
@@ -22,7 +22,7 @@ return {
     { "<leader>ff", "<cmd>Telescope find_files<CR>" },
     { "<leader>fg", "<cmd>Telescope live_grep<CR>" },
     { "<leader>fb", "<cmd>Telescope buffers<CR>" },
-    { "<C-p>",      "<cmd>Telescope git_files<CR>" },
+    { "<C-p>", "<cmd>Telescope git_files<CR>" },
     { "<leader>fh", "<cmd>Telescope help_tags<CR>" },
   },
   config = function(_, opts)
