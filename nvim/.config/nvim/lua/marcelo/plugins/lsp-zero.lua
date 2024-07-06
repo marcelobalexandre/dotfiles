@@ -26,9 +26,16 @@ return {
   {
     "stevearc/conform.nvim",
     opts = {
+      -- log_level = vim.log.levels.DEBUG,
       formatters = {
         shfmt = {
           prepend_args = { "-i", "2" },
+        },
+        rubocop = {
+          args = { "-a", "-f", "quiet", "--stderr", "--stdin", "$FILENAME" },
+        },
+        htmlbeautifier = {
+          args = { "--keep_blank_lines", "1" },
         },
       },
       formatters_by_ft = {
@@ -36,6 +43,8 @@ return {
         lua = { "stylua" },
         sh = { "shellcheck", "shfmt" },
         javascript = { "prettierd" },
+        ruby = { "rubyfmt", "rubocop" },
+        eruby = { "htmlbeautifier" },
         typescript = { "prettierd" },
       },
       format_on_save = function(bufnr)
@@ -133,19 +142,38 @@ return {
           -- Lua
           "lua_ls",
           -- Ruby
+          "ruby_lsp",
           "rubocop",
-          "solargraph",
           -- Shell
           "bashls",
           -- TypeScript
           "eslint",
           "tsserver",
+          -- Tailwind CSS
+          "tailwindcss",
         },
         handlers = {
           lsp_zero.default_setup,
           lua_ls = function()
             local lua_opts = lsp_zero.nvim_lua_ls()
             require("lspconfig").lua_ls.setup(lua_opts)
+          end,
+          tailwindcss = function()
+            require("lspconfig").tailwindcss.setup({
+              settings = {
+                tailwindCSS = {
+                  includeLanguages = {
+                    eruby = "erb",
+                  },
+                  experimental = {
+                    classRegex = {
+                      "\\bclass:\\s*'([^']*)'",
+                      '\\bclass:\\s*"([^"]*)"',
+                    },
+                  },
+                },
+              },
+            })
           end,
         },
       })
