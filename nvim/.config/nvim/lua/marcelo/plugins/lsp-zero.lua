@@ -26,14 +26,14 @@ return {
   {
     "stevearc/conform.nvim",
     opts = {
-      -- log_level = vim.log.levels.DEBUG,
+      --log_level = vim.log.levels.DEBUG,
       formatters = {
         shfmt = {
           prepend_args = { "-i", "2" },
         },
-        rubocop = {
-          args = { "-a", "-f", "quiet", "--stderr", "--stdin", "$FILENAME" },
-        },
+        --rubocop = {
+        --  args = { "-a", "-f", "quiet", "--stderr", "--stdin", "$FILENAME" },
+        --},
         htmlbeautifier = {
           args = { "--keep_blank_lines", "1" },
         },
@@ -43,8 +43,8 @@ return {
         lua = { "stylua" },
         sh = { "shellcheck", "shfmt" },
         javascript = { "prettierd" },
-        ruby = { "rubyfmt", "rubocop" },
-        eruby = { "htmlbeautifier" },
+        ruby = { "rubocop" },
+        eruby = { "htmlbeautifier", "rubocop" },
         typescript = { "prettierd" },
       },
       format_on_save = function(bufnr)
