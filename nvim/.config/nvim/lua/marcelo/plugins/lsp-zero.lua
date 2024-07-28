@@ -42,10 +42,10 @@ return {
         go = { "goimports", "gofumpt", "golines" },
         lua = { "stylua" },
         sh = { "shellcheck", "shfmt" },
-        javascript = { "prettierd" },
         ruby = { "rubocop" },
         eruby = { "htmlbeautifier", "rubocop" },
-        typescript = { "prettierd" },
+        javascript = { "biome" },
+        typescript = { "biome" },
       },
       format_on_save = function(bufnr)
         if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
@@ -147,6 +147,7 @@ return {
           -- Shell
           "bashls",
           -- TypeScript
+          "biome",
           "eslint",
           "tsserver",
           -- Tailwind CSS
@@ -174,6 +175,9 @@ return {
                 },
               },
             })
+          end,
+          biome = function()
+            require("lspconfig").biome.setup({})
           end,
         },
       })
