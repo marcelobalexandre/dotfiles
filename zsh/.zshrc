@@ -6,6 +6,7 @@
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
 export BROWSER=firefox
