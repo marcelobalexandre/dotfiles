@@ -8,10 +8,12 @@ return {
     ensure_installed = {
       "c",
       "go",
+      "html",
       "javascript",
       "lua",
       "query",
       "ruby",
+      "svelte",
       "templ",
       "typescript",
       "vim",
@@ -34,5 +36,8 @@ return {
   end,
   build = function()
     require("nvim-treesitter.install").update({ with_sync = true })()
+  end,
+  config = function(_, opts)
+    require("nvim-treesitter.configs").setup(opts)
   end,
 }

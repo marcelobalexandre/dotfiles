@@ -46,13 +46,14 @@ return {
         eruby = { "htmlbeautifier", "rubocop" },
         javascript = { "biome" },
         typescript = { "biome" },
+        svelte = { "prettier", "prettierd", stop_after_first = true },
       },
       format_on_save = function(bufnr)
         if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
           return
         end
 
-        return { timeout_ms = 500, lsp_fallback = true }
+        return { timeout_ms = 750, lsp_fallback = true }
       end,
     },
     config = function(_, opts)
@@ -130,6 +131,9 @@ return {
 
       lsp_zero.on_attach(function(_, bufnr)
         lsp_zero.default_keymaps({ buffer = bufnr })
+
+        vim.api.nvim_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { noremap = true, silent = true })
+        vim.api.nvim_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", { noremap = true, silent = true })
       end)
 
       require("mason-lspconfig").setup({
@@ -146,10 +150,12 @@ return {
           "rubocop",
           -- Shell
           "bashls",
+          -- Svelte
+          "svelte",
           -- TypeScript
           "biome",
           "eslint",
-          "tsserver",
+          "ts_ls",
           -- Tailwind CSS
           "tailwindcss",
         },

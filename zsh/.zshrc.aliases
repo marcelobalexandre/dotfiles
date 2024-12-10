@@ -16,3 +16,7 @@ alias cd.aoc='cd ~/src/personal/advent-of-code'
 alias cd.work='cd ~/src/work'
 
 alias git.undo='git reset HEAD~'
+
+alias p='pnpm'
+alias n='npm'
+alias dc='docker compose'

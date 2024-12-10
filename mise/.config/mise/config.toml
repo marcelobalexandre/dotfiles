@@ -2,3 +2,4 @@
 node = "latest"
 ruby = "latest"
 go = "latest"
+python = "3.13.0"
