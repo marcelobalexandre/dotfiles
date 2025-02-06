@@ -3,24 +3,29 @@
 ctrl - a : skhd -k "cmd - a"
 ctrl - c [
   "Alacritty" ~
+  "Ghostty" ~
   *           : skhd -k "cmd - c"
 ]
 ctrl - f [
   "Alacritty" ~
+  "Ghostty" ~
   *           : skhd -k "cmd - f"
 ]
 ctrl - k : skhd -k "cmd - k"
 ctrl - l : skhd -k "cmd - l"
 ctrl - r [
   "Alacritty" ~
+  "Ghostty" ~
   *           : skhd -k "cmd - r"
 ]
 ctrl - t [
   "Alacritty" ~
+  "Ghostty" ~
   *           : skhd -k "cmd - t"
 ]
 ctrl - v [
   "Alacritty" ~
+  "Ghostty" ~
   *           : skhd -k "cmd - v" 
 ]
 ctrl - x : skhd -k "cmd - x"
