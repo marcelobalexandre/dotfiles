@@ -4,6 +4,14 @@
 
 -- Debug reference: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/what-to-do-when-lsp-doesnt-start.md
 
+local function get_formatter_for(ft)
+  if ft == "javascript" or ft == "typescript" then
+    local biome_exists = #vim.fs.find("biome.json", { upward = true }) > 0
+    return biome_exists and { "biome" } or { "eslint" }
+  end
+  return nil
+end
+
 return {
   {
     "VonHeikemen/lsp-zero.nvim",
@@ -31,9 +39,10 @@ return {
         shfmt = {
           prepend_args = { "-i", "2" },
         },
-        --rubocop = {
-        --  args = { "-a", "-f", "quiet", "--stderr", "--stdin", "$FILENAME" },
-        --},
+        rubocop = {
+          --args = { "-a", "-f", "quiet", "--stderr", "--stdin", "$FILENAME" },
+          args = { "--server", "--auto-correct-all", "--stderr", "--force-exclusion", "--stdin", "$FILENAME" },
+        },
         htmlbeautifier = {
           args = { "--keep_blank_lines", "1" },
         },
@@ -43,9 +52,9 @@ return {
         lua = { "stylua" },
         sh = { "shellcheck", "shfmt" },
         ruby = { "rubocop" },
-        eruby = { "htmlbeautifier", "rubocop" },
-        javascript = { "biome" },
-        typescript = { "biome" },
+        eruby = { "htmlbeautifier" },
+        javascript = get_formatter_for("javascript"),
+        typescript = get_formatter_for("typescript"),
         svelte = { "prettier", "prettierd", stop_after_first = true },
       },
       format_on_save = function(bufnr)
@@ -53,7 +62,7 @@ return {
           return
         end
 
-        return { timeout_ms = 750, lsp_fallback = true }
+        return { timeout_ms = 500, lsp_fallback = true }
       end,
     },
     config = function(_, opts)
@@ -145,9 +154,6 @@ return {
           "templ",
           -- Lua
           "lua_ls",
-          -- Ruby
-          "ruby_lsp",
-          "rubocop",
           -- Shell
           "bashls",
           -- Svelte
@@ -157,7 +163,7 @@ return {
           "eslint",
           "ts_ls",
           -- Tailwind CSS
-          "tailwindcss",
+          -- "tailwindcss",
         },
         handlers = {
           lsp_zero.default_setup,
@@ -188,7 +194,9 @@ return {
         },
       })
 
-      require("mason-conform").setup()
+      require("mason-conform").setup({
+        ignore_install = { "rubocop" },
+      })
     end,
   },
 }
