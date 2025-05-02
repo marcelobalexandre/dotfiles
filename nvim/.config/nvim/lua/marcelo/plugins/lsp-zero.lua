@@ -171,23 +171,23 @@ return {
             local lua_opts = lsp_zero.nvim_lua_ls()
             require("lspconfig").lua_ls.setup(lua_opts)
           end,
-          tailwindcss = function()
-            require("lspconfig").tailwindcss.setup({
-              settings = {
-                tailwindCSS = {
-                  includeLanguages = {
-                    eruby = "erb",
-                  },
-                  experimental = {
-                    classRegex = {
-                      "\\bclass:\\s*'([^']*)'",
-                      '\\bclass:\\s*"([^"]*)"',
-                    },
-                  },
-                },
-              },
-            })
-          end,
+          -- tailwindcss = function()
+          --   require("lspconfig").tailwindcss.setup({
+          --     settings = {
+          --       tailwindCSS = {
+          --         includeLanguages = {
+          --           eruby = "erb",
+          --         },
+          --         experimental = {
+          --           classRegex = {
+          --             "\\bclass:\\s*'([^']*)'",
+          --             '\\bclass:\\s*"([^"]*)"',
+          --           },
+          --         },
+          --       },
+          --     },
+          --   })
+          -- end,
           biome = function()
             require("lspconfig").biome.setup({})
           end,
@@ -196,6 +196,33 @@ return {
 
       require("mason-conform").setup({
         ignore_install = { "rubocop" },
+      })
+
+      -- Skip mason-lspconfig for ruby_lsp to to use the version installed via mise-managed Ruby.
+      require("lspconfig").ruby_lsp.setup({})
+
+      -- Skip mason-lspconfig for tailwindcss to use the version installed via mise-managed Node.
+      require("lspconfig").tailwindcss.setup({
+        root_dir = require("lspconfig.util").root_pattern(
+          "tailwind.config.js",
+          "tailwind.config.cjs",
+          "tailwind.config.ts",
+          "tailwind.config.rb",
+          "config/tailwind.config.js"
+        ),
+        settings = {
+          tailwindCSS = {
+            includeLanguages = {
+              eruby = "erb",
+            },
+            experimental = {
+              classRegex = {
+                "\\bclass:\\s*'([^']*)'",
+                '\\bclass:\\s*"([^"]*)"',
+              },
+            },
+          },
+        },
       })
     end,
   },
