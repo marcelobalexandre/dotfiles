@@ -40,7 +40,7 @@ return {
           prepend_args = { "-i", "2" },
         },
         rubocop = {
-          --args = { "-a", "-f", "quiet", "--stderr", "--stdin", "$FILENAME" },
+          -- args = { "-a", "-f", "quiet", "--stderr", "--stdin", "$FILENAME" },
           args = { "--server", "--auto-correct-all", "--stderr", "--force-exclusion", "--stdin", "$FILENAME" },
         },
         htmlbeautifier = {
@@ -62,7 +62,7 @@ return {
           return
         end
 
-        return { timeout_ms = 500, lsp_fallback = true }
+        return { timeout_ms = 1000, lsp_fallback = true }
       end,
     },
     config = function(_, opts)
